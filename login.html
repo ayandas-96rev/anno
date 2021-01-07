@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Annofy</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container-lg">
+        
+        <div class="icon-container slow-load">
+            <div class="icon">
+                <img src="res/icon.png" alt="annofy icon">
+                <span>login to <a href="https://annofy.wtf" class="my-link">annofy.wtf</a></span>
+            </div>
+        </div>
+        <div class="option-container">
+            <div class="option slow-load">
+                <button class="option-button">Login</button>
+            </div>
+            <div class="option slow-load">
+                <button class="option-button">Create account</button>
+            </div>
+            <div class="option slow-load">
+                <button class="option-button">Connect with Facebook</button>
+            </div>
+            <div class="option slow-load">
+                <button class="option-button">Connect with Google</button>
+            </div>
+        </div>
+        <div class="login-form-container">
+            <div class="head">
+                <span class="action"><button class="btn">B</button></span>
+                <span class="title">
+                    Login
+                </span>
+                <span class="action"><button class="btn">F</button></span>
+            </div>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter password">
+                </div>  
+                <div class="form-group">
+                    <input type="submit" value="Login">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        window.onload = function(){
+            $('.icon-container').css({'opacity': 1, 'top': 0});
+            $('.option-container').css({'opacity': 1, 'top': 0});
+        }
+        $(".option").click(function(){
+            $('.option-container').css({'transition': '0.2s 0s', 'opacity': 0, 'left': '-100px'});
+            $('.icon-container').css({'transition': '0.3s 0s', 'margin-top': '10vh'});
+            setTimeout(function(){
+                $('.option-container').css('display', 'none');
+                $('.login-form-container').css('display', 'block');
+            },300); 
+            $('.login-form-container').css('opacity', 1);
+        })
+    </script>
+</body>
+</html>

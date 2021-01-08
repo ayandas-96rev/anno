@@ -34,7 +34,7 @@
         <div class="login-form-container">
             <div class="head">
                 <span class="action">
-                    <button class="btn">
+                    <button class="btn" id="back">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
                         </svg>
@@ -74,6 +74,7 @@
         window.onload = function(){
             $('.icon-container').css({'opacity': 1, 'top': 0});
             $('.option-container').css({'opacity': 1, 'top': 0});
+            $('.option').css({'margin-bottom': '7px'});
         }
         $(".option").click(function(){
             $('.option-container').css({'transition': '0.2s 0s', 'opacity': 0, 'left': '-100px'});
@@ -83,6 +84,20 @@
                 $('.login-form-container').css('display', 'block');
             },300); 
             $('.login-form-container').css('opacity', 1);
+        })
+
+        $("#back").click(function(){
+            $('.login-form-container').css('opacity', 0);
+            $('.option').css({'margin-bottom': '20px'});
+            setTimeout(function(){
+                $('.option-container').css({'display': 'flex', 'top': '100px', 'left': '0px'});
+                $('.icon-container').css({'transition': '0.3s 0s', 'margin-top': '20vh'});
+                $('.login-form-container').css('display', 'none');
+                setTimeout(function(){
+                    $('.option').css({'transition': '0 0.25s;', 'margin-bottom': '7px'});
+                    $('.option-container').css({'transition': '0.2s 0s', 'opacity': 1, 'top': 0});
+                }, 100);
+            },300); 
         })
     </script>
 </body>

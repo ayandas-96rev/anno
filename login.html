@@ -18,16 +18,16 @@
             </div>
         </div>
         <div class="option-container">
-            <div class="option slow-load">
+            <div class="option page-item slow-load" id="login">
                 <button class="option-button">Login</button>
             </div>
-            <div class="option slow-load">
+            <div class="option page-item slow-load" id = "create">
                 <button class="option-button">Create account</button>
             </div>
-            <div class="option slow-load">
+            <div class="option outer-link slow-load">
                 <button class="option-button">Connect with Facebook</button>
             </div>
-            <div class="option slow-load">
+            <div class="option outer-link slow-load">
                 <button class="option-button">Connect with Google</button>
             </div>
         </div>
@@ -43,7 +43,7 @@
                     Login
                 </span>
                 <span class="action">
-                    <button class="btn">
+                    <button class="btn" id="forward">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                           </svg>
@@ -52,15 +52,33 @@
             </div>
             <div class="login-form">
                 <div class="form-group">
-                    <label for="">Username</label>
-                    <input type="text" class="form-control" placeholder="Enter username">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email">
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" class="form-control" placeholder="Enter password">
+                    <input type="password" class="form-control" placeholder="Enter your password">
                 </div>  
                 <div class="form-group">
                     <input type="submit" class="my-button" value="Login">
+                </div>
+            </div>
+
+            <div class="create-account-form">
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" placeholder="Create new password">
+                </div>  
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" class="form-control" placeholder="Verify new password">
+                </div>  
+                <div class="form-group">
+                    <input type="submit" class="my-button" value="Sign Up">
                 </div>
             </div>
         </div>
@@ -76,7 +94,18 @@
             $('.option-container').css({'opacity': 1, 'top': 0});
             $('.option').css({'margin-bottom': '7px'});
         }
-        $(".option").click(function(){
+        $(".option.page-item").click(function(){
+            let buttonId = $(this).attr('id');
+            if( buttonId == 'login'){
+                $(".login-form").css('display', 'block');
+                $(".create-account-form").css('display', 'none');
+                $(".title").text('Login');
+            }
+            else if(buttonId == 'create'){
+                $(".login-form").css('display', 'none');
+                $(".create-account-form").css('display', 'block');
+                $(".title").text('Sign Up');
+            }
             $('.option-container').css({'transition': '0.2s 0s', 'opacity': 0, 'left': '-100px'});
             $('.icon-container').css({'transition': '0.3s 0s', 'margin-top': '10vh'});
             setTimeout(function(){

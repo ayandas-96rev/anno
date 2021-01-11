@@ -70,6 +70,14 @@ a.my-link:hover {
     margin: 10px;
     box-shadow: 2px 0 5px #d3d3d3;
 }
+button#google:hover {
+    background: #ff0000b5;
+    color: #fff;
+}
+button#facebook:hover {
+    background: #0000ffad;
+    color: #fff;
+}
 
 .login-form-container {
     display: none;
